@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Formulário de Automação Inteligente | Intellih Tecnologia</title>
+  <meta name="description" content="Descubra como automatizar seu negócio com IA e ferramentas inteligentes da Intellih. Preencha e receba um diagnóstico gratuito.">
+
+  <!-- PIXEL META -->
+  <script>
+    !(function(f,b,e,v,n,t,s){
+      if(f.fbq) return; n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq) f._fbq=n; n.push=n; n.loaded=!0; n.version='2.0';
+      n.queue=[]; t=b.createElement(e); t.async=!0;
+      t.src=v; s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)
+    })(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1467115531230271');
+    fbq('track', 'PageView');
+  </script>
+
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #ffffff;
+      color: #222;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 60px auto;
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.1);
+      background: #fff;
+    }
+
+    h1 {
+      color: #c44b04;
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 1.9rem;
+    }
+
+    p {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 1.05rem;
+      color: #333;
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: 600;
+      color: #333;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 1em;
+      box-sizing: border-box;
+    }
+
+    textarea {
+      resize: vertical;
+    }
+
+    button {
+      background-color: #c44b04;
+      color: white;
+      padding: 14px 20px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      width: 100%;
+      margin-top: 25px;
+      font-size: 1.1em;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #a23c03;
+    }
+
+    .center {
+      text-align: center;
+      margin-top: 10px;
+      color: #666;
+      font-size: 0.95em;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 50px;
+      color: #777;
+      font-size: 0.9em;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>🚀 Diagnóstico de Automação Inteligente</h1>
+    <p>Responda algumas perguntas e receba uma análise gratuita sobre como automatizar processos no seu negócio.</p>
+
+    <form id="automationForm">
+      <label>Nome completo:</label>
+      <input type="text" name="nome" required>
+
+      <label>E-mail:</label>
+      <input type="email" name="email" required>
+
+      <label>Telefone / WhatsApp:</label>
+      <input type="tel" name="telefone" placeholder="(xx) xxxxx-xxxx">
+
+      <label>Você é:</label>
+      <select name="perfil" required>
+        <option value="">Selecione</option>
+        <option>Pessoa física / autônomo</option>
+        <option>Dono(a) de empresa</option>
+        <option>Profissional de marketing / vendas</option>
+        <option>Outro</option>
+      </select>
+
+      <label>Setor ou área de atuação:</label>
+      <select name="setor">
+        <option value="">Selecione</option>
+        <option>Serviços</option>
+        <option>Varejo / e-commerce</option>
+        <option>Educação</option>
+        <option>Saúde / estética</option>
+        <option>Tecnologia / inovação</option>
+        <option>Outro</option>
+      </select>
+
+      <label>Objetivo principal com automação:</label>
+      <select name="objetivo">
+        <option value="">Selecione</option>
+        <option>Ganhar tempo</option>
+        <option>Aumentar vendas</option>
+        <option>Melhorar atendimento</option>
+        <option>Reduzir erros</option>
+        <option>Integrar sistemas / dados</option>
+      </select>
+
+      <label>O que você já utiliza hoje?</label>
+      <select name="ferramentas">
+        <option value="">Selecione</option>
+        <option>Planilhas</option>
+        <option>Zapier / Make / n8n</option>
+        <option>Sistema próprio / ERP</option>
+        <option>Ainda não uso automação</option>
+      </select>
+
+      <label>Qual processo você gostaria de automatizar?</label>
+      <textarea name="descricao" rows="3" placeholder="Ex.: responder clientes, gerar relatórios, integrar planilhas..."></textarea>
+
+      <button type="submit">Quero minha análise gratuita 🔍</button>
+    </form>
+
+    <div class="center">💡 Leva menos de 2 minutos!</div>
+  </div>
+
+  <footer>© 2025 Intellih Tecnologia – IA e Automação para Negócios.</footer>
+
+  <script>
+    document.getElementById("automationForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      // dispara evento do pixel
+      fbq('track', 'Lead');
+
+      // pequena pausa para garantir o rastreio do Meta Pixel
+      setTimeout(function() {
+        window.location.href = "/thankyou";
+      }, 400);
+    });
+  </script>
+</body>
+</html>
