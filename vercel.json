@@ -1,10 +1,13 @@
 {
   "version": 2,
+  "alias": "automacao.intellih.com.br",
   "routes": [
     { "src": "/formulario", "dest": "/formulario.html" },
     { "src": "/formulario/", "dest": "/formulario.html" },
     { "src": "/thankyou", "dest": "/thankyou.html" },
     { "src": "/thankyou/", "dest": "/thankyou.html" },
+    { "src": "/obrigado", "dest": "/thankyou.html" },
+    { "src": "/obrigado/", "dest": "/thankyou.html" },
     { "src": "/(.*)", "dest": "/index.html" }
   ],
   "redirects": [
