@@ -11,6 +11,27 @@
     { "src": "/thankyou/", "dest": "/thankyou.html" },
     { "src": "/obrigado", "dest": "/thankyou.html" },
     { "src": "/obrigado/", "dest": "/thankyou.html" },
+    { "src": "/formulario", "dest": "/formulario.html" },
+    { "src": "/formulario/", "dest": "/formulario.html" },
     { "src": "/(.*)", "dest": "/index.html" }
+  ],
+  "redirects": [
+    {
+      "source": "https://formulario.intellih.com.br",
+      "destination": "https://intellih.com.br/formulario.html",
+      "permanent": true
+    },
+    {
+      "source": "https://thankyou.intellih.com.br",
+      "destination": "https://intellih.com.br/thankyou.html",
+      "permanent": true
+    },
+    {
+      "source": "https://www.intellih.com.br/(.*)",
+      "destination": "https://intellih.com.br/$1",
+      "permanent": true
+    }
   ]
 }
+
+
