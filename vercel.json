@@ -1,37 +1,31 @@
 {
   "version": 2,
   "routes": [
-    { "src": "/diagnostico", "dest": "/diagnostico.html" },
-    { "src": "/diagnostico/", "dest": "/diagnostico.html" },
-    { "src": "/consultoria", "dest": "/consultoria.html" },
-    { "src": "/consultoria/", "dest": "/consultoria.html" },
-    { "src": "/consultoria-premium", "dest": "/consultoria-premium.html" },
-    { "src": "/consultoria-premium/", "dest": "/consultoria-premium.html" },
-    { "src": "/thankyou", "dest": "/thankyou.html" },
-    { "src": "/thankyou/", "dest": "/thankyou.html" },
-    { "src": "/obrigado", "dest": "/thankyou.html" },
-    { "src": "/obrigado/", "dest": "/thankyou.html" },
     { "src": "/formulario", "dest": "/formulario.html" },
     { "src": "/formulario/", "dest": "/formulario.html" },
+    { "src": "/thankyou", "dest": "/thankyou.html" },
+    { "src": "/thankyou/", "dest": "/thankyou.html" },
     { "src": "/(.*)", "dest": "/index.html" }
   ],
   "redirects": [
     {
-      "source": "https://formulario.intellih.com.br",
-      "destination": "https://intellih.com.br/formulario.html",
+      "source": "/(.*)",
+      "has": [{ "type": "host", "value": "formulario.intellih.com.br" }],
+      "destination": "https://automacao.intellih.com.br/formulario.html",
       "permanent": true
     },
     {
-      "source": "https://thankyou.intellih.com.br",
-      "destination": "https://intellih.com.br/thankyou.html",
+      "source": "/(.*)",
+      "has": [{ "type": "host", "value": "thankyou.intellih.com.br" }],
+      "destination": "https://automacao.intellih.com.br/thankyou.html",
       "permanent": true
     },
     {
-      "source": "https://www.intellih.com.br/(.*)",
-      "destination": "https://intellih.com.br/$1",
+      "source": "/(.*)",
+      "has": [{ "type": "host", "value": "www.automacao.intellih.com.br" }],
+      "destination": "https://automacao.intellih.com.br/$1",
       "permanent": true
     }
   ]
 }
-
 
