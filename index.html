@@ -113,10 +113,10 @@
       </div>
     </div>
 
-    <!-- BOTÃO ALTERADO PARA ABRIR FORMULÁRIO INTERNO -->
-    <a href="formulario.html"
+    <!-- BOTÃO AJUSTADO: rota absoluta para garantir funcionamento em qualquer subdomínio -->
+    <a href="/formulario"
        class="cta"
-       onclick="fbq('track', 'Lead');">
+       onclick="if (typeof fbq === 'function') fbq('track', 'Lead');">
        Quero meu diagnóstico gratuito
     </a>
 
