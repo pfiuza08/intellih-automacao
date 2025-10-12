@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "routes": [
+  "alias": "automacao.intellih.com.br", 
     {
       "src": "/(.*)",
       "has": [{ "type": "host", "value": "formulario.intellih.com.br" }],
