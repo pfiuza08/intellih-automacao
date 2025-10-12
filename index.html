@@ -4,13 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Automação Inteligente | Intellih Tecnologia</title>
-  <meta name="description" content="Receba um diagnóstico gratuito de automação e faça o download imediato do e-book Automação Inteligente para Pequenos Negócios.">
+  <meta name="description" content="Receba um diagnóstico gratuito de automação e baixe o e-book Automação Inteligente para Pequenos Negócios.">
   <link rel="icon" href="/favicon.ico" />
 
   <style>
-    :root {
-      --bg:#0a0a0a; --fg:#ffffff; --muted:#bfbfbf; --brand:#c44b04; --card:#121212; --stroke:#1e1e1e;
-    }
+    :root { --bg:#0a0a0a; --fg:#ffffff; --muted:#bfbfbf; --brand:#c44b04; --card:#121212; --stroke:#1e1e1e; }
     * { box-sizing: border-box; }
     body { margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif; background:var(--bg); color:var(--fg); }
     .wrap { max-width:1100px; margin:0 auto; padding:24px; }
@@ -37,10 +35,7 @@
     .checkbox-wrap a { color:var(--brand); text-decoration:none; }
     .muted { color:var(--muted); font-size:12px; }
     footer { border-top:1px solid var(--stroke); margin-top:32px; padding:24px 0; color:var(--muted); font-size:14px; }
-    @media (max-width: 960px) {
-      .hero { grid-template-columns: 1fr; }
-      .grid-3, .how { grid-template-columns: 1fr; }
-    }
+    @media (max-width: 960px) { .hero { grid-template-columns: 1fr; } .grid-3, .how { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
@@ -51,7 +46,7 @@
         <span class="badge">Intellih Tecnologia</span>
         <h1>Automatize processos, reduza custos e <span style="color:var(--brand)">escale resultados</span>.</h1>
         <p class="sub">
-          Receba um <b>diagnóstico gratuito</b> e faça o <b>download imediato</b> do e-book
+          Receba um <b>diagnóstico gratuito</b> e baixe o e-book
           <i>“Automação Inteligente para Pequenos Negócios”</i>.
         </p>
         <div class="cta">
@@ -78,15 +73,6 @@
       <div class="card"><h3>🔁 Processos fluídos</h3><p class="kicker">Menos repetição, menos erros, mais tempo livre.</p></div>
       <div class="card"><h3>⚙️ Integração inteligente</h3><p class="kicker">Conecte WhatsApp, CRM, Planilhas, n8n, IA e mais.</p></div>
       <div class="card"><h3>💰 ROI visível</h3><p class="kicker">Reduza custos, acelere resposta e converta melhor.</p></div>
-    </div>
-  </section>
-
-  <section class="wrap" id="como-funciona" style="padding-bottom:32px">
-    <h2>Como funciona</h2>
-    <div class="how">
-      <div class="step"><b>1.</b> Preencha o formulário.</div>
-      <div class="step"><b>2.</b> Você será redirecionado para a página de obrigado.</div>
-      <div class="step"><b>3.</b> O download do e-book inicia automaticamente.</div>
     </div>
   </section>
 
@@ -121,7 +107,7 @@
           <label for="lgpd">Concordo em receber comunicações e com a <a href="#" target="_blank">política de privacidade</a>.</label>
         </div>
 
-        <button id="submitBtn" class="btn" type="submit" style="margin-top:16px">Enviar e acessar e-book</button>
+        <button id="submitBtn" class="btn" type="submit" style="margin-top:16px">Enviar</button>
         <p id="msg" class="kicker" style="margin-top:10px"></p>
       </form>
     </div>
@@ -133,14 +119,14 @@
   </footer>
 
   <script>
-    const APPS_SCRIPT_URL = "https://script.google.com/macros/s/https://script.google.com/macros/s/AKfycbxigIA9nmhVKfcg_svQ1SNFaGHEmUXmXZf7ZHC7H_TUS-4FewnOwPFiiIdWK4ZWV-Qz/exec/exec"; // troque pelo seu Web App
-    const THANKYOU_URL = "thankyou.html"; // redirecionamento interno (ajuste mínimo)
+    const APPS_SCRIPT_URL = "https://script.google.com/macros/s/SEU_SCRIPT_ID/exec";
+    const THANKYOU_URL = "/thankyou.html"; // garante redirecionamento absoluto
 
     const form = document.getElementById('leadForm');
     const btn = document.getElementById('submitBtn');
     const msg = document.getElementById('msg');
 
-    form.addEventListener('submit', async (e) => {
+    form.addEventListener('submit', (e) => {
       e.preventDefault();
       msg.textContent = "Enviando...";
       btn.disabled = true;
@@ -156,25 +142,18 @@
       };
 
       try {
-        await fetch(APPS_SCRIPT_URL, {
+        fetch(APPS_SCRIPT_URL, {
           method: 'POST',
           mode: 'no-cors',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(payload)
         });
-
-        msg.textContent = "✅ Enviado! Redirecionando...";
-        setTimeout(() => {
-          window.location.href = THANKYOU_URL;
-        }, 800);
-
-      } catch (err) {
-        console.error("Erro ao enviar:", err);
-        msg.textContent = "❌ Erro ao enviar. Tente novamente.";
-      } finally {
-        btn.disabled = false;
-        form.reset();
+      } catch(e) {
+        console.warn("Falha no envio", e);
       }
+
+      msg.textContent = "✅ Enviado! Redirecionando...";
+      setTimeout(() => { window.location.href = THANKYOU_URL; }, 800);
     });
   </script>
 </body>
