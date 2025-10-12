@@ -1,23 +1,27 @@
 {
   "version": 2,
-  "alias": "automacao.intellih.com.br",
+  "alias": ["automacao.intellih.com.br"],
   "routes": [
     {
       "src": "/(.*)",
-      "has": [{ "type": "host", "value": "formulario.intellih.com.br" }],
+      "has": [
+        { "type": "host", "value": "formulario.intellih.com.br" }
+      ],
       "dest": "/formulario.html"
     },
     {
       "src": "/(.*)",
-      "has": [{ "type": "host", "value": "thankyou.intellih.com.br" }],
+      "has": [
+        { "type": "host", "value": "thankyou.intellih.com.br" }
+      ],
       "dest": "/thankyou.html"
     },
     {
-      "src": "/formulario",
+      "src": "^/formulario$",
       "dest": "/formulario.html"
     },
     {
-      "src": "/thankyou",
+      "src": "^/thankyou$",
       "dest": "/thankyou.html"
     },
     {
