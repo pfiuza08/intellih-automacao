@@ -4,192 +4,78 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Automação Inteligente | Intellih Tecnologia</title>
-  <meta name="description" content="Receba um diagnóstico gratuito de automação e baixe imediatamente o e-book Automação Inteligente para Pequenos Negócios da Intellih Tecnologia.">
-  <link rel="icon" href="/favicon.ico" />
-
-  <!-- Meta Pixel Code -->
-  <script>
-    !(function(f,b,e,v,n,t,s){
-      if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-      n.queue=[];t=b.createElement(e);t.async=!0;
-      t.src=v;s=b.getElementsByTagName(e)[0];
-      s.parentNode.insertBefore(t,s)
-    })(window,document,'script',
-      'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '1240394014783181'); // seu Pixel
-    fbq('track', 'PageView');
-  </script>
-  <noscript><img height="1" width="1" style="display:none"
-  src="https://www.facebook.com/tr?id=1240394014783181&ev=PageView&noscript=1"/></noscript>
-  <!-- End Meta Pixel -->
-
+  <meta name="description" content="Receba um diagnóstico gratuito de automação e baixe o e-book Automação Inteligente para Pequenos Negócios da Intellih Tecnologia.">
+  <link rel="icon" href="favicon.ico" />
   <style>
-    :root {
-      --bg:#0a0a0a; --fg:#ffffff; --muted:#bfbfbf; --brand:#c44b04; --card:#121212; --stroke:#1e1e1e;
-    }
-    *{box-sizing:border-box;}
-    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--fg);}
-    .wrap{max-width:1100px;margin:0 auto;padding:24px;}
-    .hero{display:grid;grid-template-columns:1.2fr 1fr;gap:32px;align-items:center;padding:48px 0;}
-    .badge{display:inline-block;background:rgba(196,75,4,.15);color:#ffd9c2;border:1px solid rgba(196,75,4,.35);padding:6px 10px;border-radius:999px;font-size:12px;}
-    h1{font-size:clamp(28px,5vw,48px);line-height:1.1;margin:14px 0 12px;}
-    .sub{color:var(--muted);font-size:18px;line-height:1.6;}
-    .cta{display:flex;gap:12px;margin-top:22px;flex-wrap:wrap;}
-    .btn{background:var(--brand);color:#fff;padding:14px 18px;border:none;border-radius:12px;font-weight:600;cursor:pointer;transition:.2s;}
-    .btn:hover{filter:brightness(1.05);transform:translateY(-1px);}
-    .btn.alt{background:transparent;border:1px solid var(--stroke);}
-    .card{background:var(--card);border:1px solid var(--stroke);border-radius:16px;padding:18px;}
-    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
-    .how{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
-    .how .step{background:var(--card);border:1px solid var(--stroke);border-radius:14px;padding:16px;}
-    .form{background:var(--card);border:1px solid var(--stroke);border-radius:16px;padding:18px;}
-    label{font-size:14px;color:#eaeaea;display:block;margin:10px 0 6px;}
-    input,select,textarea{width:100%;padding:12px;border-radius:10px;border:1px solid var(--stroke);background:#0f0f0f;color:#fff;}
-    input::placeholder,textarea::placeholder{color:#8f8f8f;}
-    .muted{color:var(--muted);font-size:12px;}
-    footer{border-top:1px solid var(--stroke);margin-top:32px;padding:24px 0;color:var(--muted);font-size:14px;}
-    @media(max-width:960px){.hero{grid-template-columns:1fr;}.grid-3,.how{grid-template-columns:1fr;}}
+    body{font-family:Segoe UI,Arial,sans-serif;margin:0;background:#0a0a0a;color:#fff;}
+    .wrap{max-width:800px;margin:0 auto;padding:40px 20px;text-align:center;}
+    .form{background:#121212;padding:24px;border-radius:12px;border:1px solid #1e1e1e;}
+    input,select,textarea{width:100%;margin-top:6px;margin-bottom:14px;padding:10px;border-radius:8px;border:1px solid #1e1e1e;background:#0f0f0f;color:#fff;}
+    button{background:#c44b04;border:none;padding:12px 16px;color:#fff;border-radius:10px;cursor:pointer;font-weight:600;}
+    button:hover{filter:brightness(1.1);}
+    .muted{color:#bfbfbf;font-size:13px;}
   </style>
 </head>
 <body>
+  <main class="wrap">
+    <h1>Automação Inteligente para Pequenos Negócios</h1>
+    <p>Receba um diagnóstico gratuito e baixe o e-book exclusivo da Intellih Tecnologia.</p>
 
-  <header class="wrap">
-    <div class="hero">
-      <div>
-        <span class="badge">Intellih Tecnologia</span>
-        <h1>Automatize processos, reduza custos e <span style="color:var(--brand)">escale resultados</span>.</h1>
-        <p class="sub">Receba um <b>diagnóstico gratuito</b> e baixe o e-book <i>Automação Inteligente para Pequenos Negócios</i>.</p>
-        <div class="cta">
-          <a href="#form" class="btn">Quero meu diagnóstico + e-book</a>
-          <a href="#beneficios" class="btn alt">Ver benefícios</a>
-        </div>
-      </div>
-      <div class="card">
-        <div class="kicker">Resumo do e-book</div>
-        <h3 style="margin:6px 0 10px">O que você vai aprender</h3>
-        <ul style="margin:0;padding-left:18px;line-height:1.7;color:#e9e9e9">
-          <li>Onde automatizar primeiro (80/20)</li>
-          <li>Framework RPA + IA</li>
-          <li>Casos rápidos por área</li>
-          <li>Métricas e roadmap em 7 dias</li>
-        </ul>
-        <p class="muted" style="margin-top:10px">PDF leve · Leitura rápida · Aplicação imediata</p>
-      </div>
-    </div>
-  </header>
-
-  <section id="beneficios" class="wrap">
-    <div class="grid-3">
-      <div class="card"><h3>🔁 Processos fluídos</h3><p class="muted">Menos repetição, menos erros, mais tempo livre.</p></div>
-      <div class="card"><h3>⚙️ Integração inteligente</h3><p class="muted">Conecte WhatsApp, CRM, Planilhas, n8n, IA e mais.</p></div>
-      <div class="card"><h3>💰 ROI visível</h3><p class="muted">Reduza custos, acelere resposta e converta melhor.</p></div>
-    </div>
-  </section>
-
-  <section class="wrap" id="como-funciona">
-    <h2>Como funciona</h2>
-    <div class="how">
-      <div class="step"><b>1.</b> Preencha o formulário.</div>
-      <div class="step"><b>2.</b> Baixe o e-book automaticamente.</div>
-      <div class="step"><b>3.</b> Receba seu diagnóstico personalizado.</div>
-    </div>
-  </section>
-
-  <section id="form" class="wrap">
     <div class="form">
-      <h2>Diagnóstico + E-book</h2>
       <form id="leadForm">
-        <label for="nome">Nome</label>
-        <input id="nome" name="nome" required placeholder="Seu nome" />
-
-        <label for="email">E-mail</label>
-        <input id="email" name="email" type="email" required placeholder="voce@exemplo.com" />
-
-        <label for="whats">WhatsApp</label>
-        <input id="whats" name="whats" type="tel" placeholder="(xx) xxxxx-xxxx" />
-
-        <label for="tipo">Tipo de negócio</label>
-        <select id="tipo" name="tipo" required>
-          <option value="" disabled selected>Selecione...</option>
+        <input name="nome" placeholder="Nome completo" required />
+        <input name="email" type="email" placeholder="E-mail" required />
+        <input name="whats" placeholder="WhatsApp (opcional)" />
+        <select name="tipo" required>
+          <option value="">Tipo de negócio</option>
           <option>Autônomo(a)</option>
-          <option>Profissional liberal</option>
           <option>Pequena empresa</option>
           <option>Média empresa</option>
-          <option>Outros</option>
+          <option>Profissional liberal</option>
         </select>
-
-        <label for="desafio">Principal desafio</label>
-        <textarea id="desafio" name="desafio" rows="4" placeholder="Conte rapidamente onde a automação ajudaria..."></textarea>
-
-        <div style="display:flex;align-items:center;gap:10px;margin-top:12px">
-          <input id="lgpd" type="checkbox" required />
-          <label for="lgpd" style="margin:0">Concordo com a política de privacidade.</label>
-        </div>
-
-        <button id="submitBtn" class="btn" type="submit" style="margin-top:16px">Enviar e baixar e-book</button>
-        <p id="msg" class="muted" style="margin-top:10px"></p>
+        <textarea name="desafio" placeholder="Descreva seu principal desafio com automação..." rows="3"></textarea>
+        <button type="submit">Enviar e baixar e-book</button>
+        <p id="msg" class="muted"></p>
       </form>
     </div>
-  </section>
-
-  <footer class="wrap">© 2025 Intellih Tecnologia · <a href="#" style="color:var(--brand)">Política de Privacidade</a></footer>
+  </main>
 
   <script>
-    const APPS_SCRIPT_URL = "https://script.google.com/macros/s/SEU_SCRIPT_ID/exec"; // substitua pelo seu URL do Apps Script
-    const EBOOK_PATH = "/ebooks/ebook-automacao-inteligente.pdf";
+    const APPS_SCRIPT_URL = "https://script.google.com/macros/s/SEU_SCRIPT_ID/exec"; // substitua pelo URL do Apps Script
+    const EBOOK_PATH = "ebooks/ebook-automacao-inteligente.pdf";
 
     const form = document.getElementById('leadForm');
     const msg = document.getElementById('msg');
-    const btn = document.getElementById('submitBtn');
 
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
       msg.textContent = "Enviando...";
-      btn.disabled = true;
-
-      const payload = {
-        nome: form.nome.value.trim(),
-        email: form.email.value.trim(),
-        whats: form.whats.value.trim(),
-        tipo: form.tipo.value,
-        desafio: form.desafio.value.trim(),
-        origem: window.location.href,
-        ts: new Date().toISOString()
-      };
+      const payload = Object.fromEntries(new FormData(form).entries());
+      payload.origem = window.location.href;
+      payload.ts = new Date().toISOString();
 
       try {
         await fetch(APPS_SCRIPT_URL, {
-          method: 'POST',
-          mode: 'no-cors',
-          headers: { 'Content-Type': 'application/json' },
+          method: "POST",
+          mode: "no-cors",
+          headers: { "Content-Type": "application/json" },
           body: JSON.stringify(payload)
         });
       } catch (err) {
-        console.error(err);
+        console.error("Erro ao enviar:", err);
       }
 
-      // Dispara download do e-book
-      const a = document.createElement('a');
+      // Dispara o download do e-book
+      const a = document.createElement("a");
       a.href = EBOOK_PATH;
       a.download = "ebook-automacao-inteligente.pdf";
       document.body.appendChild(a);
       a.click();
       a.remove();
 
-      // Evento Pixel
-      fbq('trackCustom', 'EbookDownload', { ebook: 'Automacao Inteligente' });
-
-      // Feedback visual
-      msg.textContent = "E-book baixando... você será redirecionado.";
-      btn.disabled = false;
+      msg.textContent = "E-book baixando... redirecionando.";
       form.reset();
-
-      // Redireciona após 2 segundos
-      setTimeout(() => {
-        window.location.href = "/thankyou.html";
-      }, 2000);
+      setTimeout(() => window.location.href = "thankyou.html", 1500);
     });
   </script>
 </body>
