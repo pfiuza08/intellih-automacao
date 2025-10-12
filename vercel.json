@@ -10,24 +10,7 @@
     }
   ],
   "rewrites": [
-    {
-      "source": "/(.*)",
-      "has": [{ "type": "host", "value": "formulario.intellih.com.br" }],
-      "destination": "/formulario.html"
-    },
-    {
-      "source": "/(.*)",
-      "has": [{ "type": "host", "value": "thankyou.intellih.com.br" }],
-      "destination": "/thankyou.html"
-    },
-    {
-      "source": "/thankyou",
-      "destination": "/thankyou.html"
-    },
-    {
-      "source": "/(.*)",
-      "destination": "/index.html"
-    }
+    { "source": "/thankyou", "destination": "/thankyou.html" },
+    { "source": "/(.*)", "destination": "/index.html" }
   ]
 }
-
