@@ -2,11 +2,12 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Intellih Tecnologia | Automação Inteligente para o Seu Negócio 🚀</title>
-  <meta name="description" content="Ajudamos pessoas e empresas a economizarem tempo e dinheiro automatizando tarefas repetitivas com ferramentas de IA e automação inteligente.">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Automação Inteligente | Intellih Tecnologia</title>
+  <meta name="description" content="Receba um diagnóstico gratuito de automação e baixe imediatamente o e-book Automação Inteligente para Pequenos Negócios da Intellih Tecnologia.">
+  <link rel="icon" href="/favicon.ico" />
 
-  <!-- PIXEL META -->
+  <!-- Meta Pixel Code -->
   <script>
     !(function(f,b,e,v,n,t,s){
       if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -14,119 +15,176 @@
       if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
       n.queue=[];t=b.createElement(e);t.async=!0;
       t.src=v;s=b.getElementsByTagName(e)[0];
-      s.parentNode.insertBefore(t,s)})(window, document,'script',
+      s.parentNode.insertBefore(t,s)
+    })(window,document,'script',
       'https://connect.facebook.net/en_US/fbevents.js');
-      fbq('init', '3929736470503988'); 
-      fbq('track', 'PageView');
-    </script>
-    <noscript>
-      <img height="1" width="1" style="display:none"
-      src="https://www.facebook.com/tr?id=3929736470503988&ev=PageView&noscript=1"/>
-    </noscript>
+    fbq('init', '1240394014783181'); // seu Pixel
+    fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=1240394014783181&ev=PageView&noscript=1"/></noscript>
+  <!-- End Meta Pixel -->
 
   <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #ffffff;
-      color: #222;
-      line-height: 1.6;
+    :root {
+      --bg:#0a0a0a; --fg:#ffffff; --muted:#bfbfbf; --brand:#c44b04; --card:#121212; --stroke:#1e1e1e;
     }
-    .container {
-      max-width: 850px;
-      margin: 0 auto;
-      padding: 60px 20px;
-      text-align: center;
-    }
-    h1 {
-      font-size: 2.6rem;
-      color: #c44b04;
-      margin-bottom: 20px;
-    }
-    p.subtitle {
-      font-size: 1.25rem;
-      margin-bottom: 35px;
-      color: #333;
-    }
-    .benefits {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-      gap: 20px;
-      margin-bottom: 50px;
-    }
-    .benefit {
-      background: #f9f9f9;
-      padding: 25px;
-      border-radius: 15px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-      transition: transform 0.2s ease;
-    }
-    .benefit:hover {
-      transform: scale(1.03);
-    }
-    .cta {
-      background: #c44b04;
-      color: #fff;
-      padding: 18px 45px;
-      border: none;
-      border-radius: 12px;
-      font-size: 1.25rem;
-      cursor: pointer;
-      transition: background 0.3s;
-      text-decoration: none;
-      display: inline-block;
-    }
-    .cta:hover {
-      background: #a23c03;
-    }
-    footer {
-      margin-top: 70px;
-      font-size: 0.9rem;
-      color: #666;
-    }
-    footer a {
-      color: #c44b04;
-      text-decoration: none;
-    }
+    *{box-sizing:border-box;}
+    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--fg);}
+    .wrap{max-width:1100px;margin:0 auto;padding:24px;}
+    .hero{display:grid;grid-template-columns:1.2fr 1fr;gap:32px;align-items:center;padding:48px 0;}
+    .badge{display:inline-block;background:rgba(196,75,4,.15);color:#ffd9c2;border:1px solid rgba(196,75,4,.35);padding:6px 10px;border-radius:999px;font-size:12px;}
+    h1{font-size:clamp(28px,5vw,48px);line-height:1.1;margin:14px 0 12px;}
+    .sub{color:var(--muted);font-size:18px;line-height:1.6;}
+    .cta{display:flex;gap:12px;margin-top:22px;flex-wrap:wrap;}
+    .btn{background:var(--brand);color:#fff;padding:14px 18px;border:none;border-radius:12px;font-weight:600;cursor:pointer;transition:.2s;}
+    .btn:hover{filter:brightness(1.05);transform:translateY(-1px);}
+    .btn.alt{background:transparent;border:1px solid var(--stroke);}
+    .card{background:var(--card);border:1px solid var(--stroke);border-radius:16px;padding:18px;}
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+    .how{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+    .how .step{background:var(--card);border:1px solid var(--stroke);border-radius:14px;padding:16px;}
+    .form{background:var(--card);border:1px solid var(--stroke);border-radius:16px;padding:18px;}
+    label{font-size:14px;color:#eaeaea;display:block;margin:10px 0 6px;}
+    input,select,textarea{width:100%;padding:12px;border-radius:10px;border:1px solid var(--stroke);background:#0f0f0f;color:#fff;}
+    input::placeholder,textarea::placeholder{color:#8f8f8f;}
+    .muted{color:var(--muted);font-size:12px;}
+    footer{border-top:1px solid var(--stroke);margin-top:32px;padding:24px 0;color:var(--muted);font-size:14px;}
+    @media(max-width:960px){.hero{grid-template-columns:1fr;}.grid-3,.how{grid-template-columns:1fr;}}
   </style>
 </head>
-
 <body>
-  <div class="container">
-    <h1>Intellih Tecnologia 🚀</h1>
-    <p class="subtitle">
-      Ajudamos pessoas e empresas a economizarem tempo e dinheiro automatizando tarefas repetitivas com ferramentas de IA e automação inteligente.
-    </p>
 
-    <div class="benefits">
-      <div class="benefit">
-        🤖 <strong>Automatize Tarefas</strong><br>
-        Deixe sistemas inteligentes cuidarem do trabalho repetitivo.
+  <header class="wrap">
+    <div class="hero">
+      <div>
+        <span class="badge">Intellih Tecnologia</span>
+        <h1>Automatize processos, reduza custos e <span style="color:var(--brand)">escale resultados</span>.</h1>
+        <p class="sub">Receba um <b>diagnóstico gratuito</b> e baixe o e-book <i>Automação Inteligente para Pequenos Negócios</i>.</p>
+        <div class="cta">
+          <a href="#form" class="btn">Quero meu diagnóstico + e-book</a>
+          <a href="#beneficios" class="btn alt">Ver benefícios</a>
+        </div>
       </div>
-      <div class="benefit">
-        📈 <strong>Aumente Produtividade</strong><br>
-        Elimine tarefas manuais e foque no crescimento.
-      </div>
-      <div class="benefit">
-        💼 <strong>Reduza Custos</strong><br>
-        Faça mais com menos esforço — de forma automatizada.
+      <div class="card">
+        <div class="kicker">Resumo do e-book</div>
+        <h3 style="margin:6px 0 10px">O que você vai aprender</h3>
+        <ul style="margin:0;padding-left:18px;line-height:1.7;color:#e9e9e9">
+          <li>Onde automatizar primeiro (80/20)</li>
+          <li>Framework RPA + IA</li>
+          <li>Casos rápidos por área</li>
+          <li>Métricas e roadmap em 7 dias</li>
+        </ul>
+        <p class="muted" style="margin-top:10px">PDF leve · Leitura rápida · Aplicação imediata</p>
       </div>
     </div>
+  </header>
 
-    <!-- BOTÃO AJUSTADO: rota absoluta para garantir funcionamento em qualquer subdomínio -->
-    <a href="/formulario"
-       class="cta"
-       onclick="if (typeof fbq === 'function') fbq('track', 'Lead');">
-       Quero meu diagnóstico gratuito
-    </a>
+  <section id="beneficios" class="wrap">
+    <div class="grid-3">
+      <div class="card"><h3>🔁 Processos fluídos</h3><p class="muted">Menos repetição, menos erros, mais tempo livre.</p></div>
+      <div class="card"><h3>⚙️ Integração inteligente</h3><p class="muted">Conecte WhatsApp, CRM, Planilhas, n8n, IA e mais.</p></div>
+      <div class="card"><h3>💰 ROI visível</h3><p class="muted">Reduza custos, acelere resposta e converta melhor.</p></div>
+    </div>
+  </section>
 
-    <footer>
-      © 2025 <strong>Intellih Tecnologia</strong> – Soluções em IA e Automação Inteligente.  
-      <br>
-      <a href="https://www.intellih.com.br" target="_blank">www.intellih.com.br</a>
-    </footer>
-  </div>
+  <section class="wrap" id="como-funciona">
+    <h2>Como funciona</h2>
+    <div class="how">
+      <div class="step"><b>1.</b> Preencha o formulário.</div>
+      <div class="step"><b>2.</b> Baixe o e-book automaticamente.</div>
+      <div class="step"><b>3.</b> Receba seu diagnóstico personalizado.</div>
+    </div>
+  </section>
+
+  <section id="form" class="wrap">
+    <div class="form">
+      <h2>Diagnóstico + E-book</h2>
+      <form id="leadForm">
+        <label for="nome">Nome</label>
+        <input id="nome" name="nome" required placeholder="Seu nome" />
+
+        <label for="email">E-mail</label>
+        <input id="email" name="email" type="email" required placeholder="voce@exemplo.com" />
+
+        <label for="whats">WhatsApp</label>
+        <input id="whats" name="whats" type="tel" placeholder="(xx) xxxxx-xxxx" />
+
+        <label for="tipo">Tipo de negócio</label>
+        <select id="tipo" name="tipo" required>
+          <option value="" disabled selected>Selecione...</option>
+          <option>Autônomo(a)</option>
+          <option>Profissional liberal</option>
+          <option>Pequena empresa</option>
+          <option>Média empresa</option>
+          <option>Outros</option>
+        </select>
+
+        <label for="desafio">Principal desafio</label>
+        <textarea id="desafio" name="desafio" rows="4" placeholder="Conte rapidamente onde a automação ajudaria..."></textarea>
+
+        <div style="display:flex;align-items:center;gap:10px;margin-top:12px">
+          <input id="lgpd" type="checkbox" required />
+          <label for="lgpd" style="margin:0">Concordo com a política de privacidade.</label>
+        </div>
+
+        <button id="submitBtn" class="btn" type="submit" style="margin-top:16px">Enviar e baixar e-book</button>
+        <p id="msg" class="muted" style="margin-top:10px"></p>
+      </form>
+    </div>
+  </section>
+
+  <footer class="wrap">© 2025 Intellih Tecnologia · <a href="#" style="color:var(--brand)">Política de Privacidade</a></footer>
+
+  <script>
+    const APPS_SCRIPT_URL = "https://script.google.com/macros/s/SEU_SCRIPT_ID/exec"; // insira o seu link do Apps Script
+    const EBOOK_PATH = "/ebooks/ebook-automacao-inteligente.pdf";
+
+    const form = document.getElementById('leadForm');
+    const msg = document.getElementById('msg');
+    const btn = document.getElementById('submitBtn');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      msg.textContent = "Enviando...";
+      btn.disabled = true;
+
+      const payload = {
+        nome: form.nome.value.trim(),
+        email: form.email.value.trim(),
+        whats: form.whats.value.trim(),
+        tipo: form.tipo.value,
+        desafio: form.desafio.value.trim(),
+        origem: window.location.href,
+        ts: new Date().toISOString()
+      };
+
+      try {
+        await fetch(APPS_SCRIPT_URL, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+      } catch (err) {
+        console.error(err);
+      }
+
+      // Dispara download do e-book
+      const a = document.createElement('a');
+      a.href = EBOOK_PATH;
+      a.download = "ebook-automacao-inteligente.pdf";
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+
+      // Evento Pixel: download concluído
+      fbq('trackCustom', 'EbookDownload', { ebook: 'Automacao Inteligente' });
+
+      msg.textContent = "Pronto! O e-book está sendo baixado. Você receberá seu diagnóstico em breve.";
+      btn.disabled = false;
+      form.reset();
+    });
+  </script>
 </body>
 </html>
-
-
