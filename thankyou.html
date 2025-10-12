@@ -2,70 +2,12 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Obrigado! | Intellih Automação Inteligente</title>
-  <meta name="description" content="Obrigado por solicitar seu diagnóstico gratuito! Nossa equipe entrará em contato em breve.">
-  <style>
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #ffffff;
-      color: #222;
-      text-align: center;
-      padding: 60px 20px;
-    }
-    h1 {
-      color: #c44b04;
-      font-size: 2.4rem;
-      margin-bottom: 20px;
-    }
-    p {
-      font-size: 1.2rem;
-      margin-bottom: 35px;
-      color: #333;
-    }
-    .cta {
-      background: #c44b04;
-      color: #fff;
-      padding: 15px 35px;
-      border: none;
-      border-radius: 10px;
-      font-size: 1.1rem;
-      cursor: pointer;
-      text-decoration: none;
-      display: inline-block;
-      transition: background 0.3s;
-    }
-    .cta:hover {
-      background: #a23c03;
-    }
-    footer {
-      margin-top: 60px;
-      font-size: 0.9rem;
-      color: #666;
-    }
-    footer a {
-      color: #c44b04;
-      text-decoration: none;
-    }
-  </style>
-</head>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Obrigado! | Intellih Tecnologia</title>
+  <meta name="description" content="Seu diagnóstico de automação foi enviado com sucesso! Baixe o e-book e descubra como automatizar seu negócio com IA.">
+  <link rel="icon" href="/favicon.ico" />
 
-<body>
-  <h1>🎉 Obrigado!</h1>
-  <p>Recebemos seu pedido de diagnóstico gratuito.<br>
-  Nossa equipe da <strong>Intellih Tecnologia</strong> vai analisar suas informações e entrar em contato em breve.</p>
-
-  <a href="https://automacao.intellih.com.br" class="cta">
-    Voltar ao site principal
-  </a>
-
-  <footer>
-    © 2025 <strong>Intellih Tecnologia</strong> – Soluções em IA e Automação Inteligente.  
-    <br>
-    <a href="https://www.intellih.com.br" target="_blank">www.intellih.com.br</a>
-  </footer>
-
-  <!-- Pixel Meta -->
+  <!-- Meta Pixel Code -->
   <script>
     !(function(f,b,e,v,n,t,s){
       if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -73,13 +15,59 @@
       if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
       n.queue=[];t=b.createElement(e);t.async=!0;
       t.src=v;s=b.getElementsByTagName(e)[0];
-      s.parentNode.insertBefore(t,s)})(window, document,'script',
+      s.parentNode.insertBefore(t,s)
+    })(window,document,'script',
       'https://connect.facebook.net/en_US/fbevents.js');
-      fbq('init', '3929736470503988'); 
-      fbq('track', 'PageView');
-      fbq('track', 'CompleteRegistration');
+    fbq('init', '1240394014783181');
+    fbq('track', 'PageView');
+    fbq('track', 'Lead');
   </script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=1240394014783181&ev=Lead&noscript=1"/></noscript>
+  <!-- End Meta Pixel -->
 
+  <style>
+    :root {
+      --bg:#0a0a0a; --fg:#ffffff; --muted:#bfbfbf; --brand:#c44b04; --card:#121212; --stroke:#1e1e1e;
+    }
+    *{box-sizing:border-box;}
+    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--fg);}
+    .wrap{max-width:900px;margin:0 auto;padding:32px 24px;text-align:center;}
+    .card{background:var(--card);border:1px solid var(--stroke);border-radius:16px;padding:40px 30px;margin-top:48px;}
+    h1{font-size:clamp(26px,5vw,42px);margin-bottom:12px;}
+    p{color:var(--muted);font-size:17px;line-height:1.7;max-width:600px;margin:0 auto 20px;}
+    .btn{background:var(--brand);color:#fff;padding:14px 18px;border:none;border-radius:12px;font-weight:600;cursor:pointer;transition:.2s;margin:8px;}
+    .btn:hover{filter:brightness(1.05);transform:translateY(-1px);}
+    .btn.alt{background:transparent;border:1px solid var(--stroke);}
+    footer{border-top:1px solid var(--stroke);margin-top:64px;padding:24px 0;color:var(--muted);font-size:14px;}
+  </style>
+</head>
+<body>
+
+  <main class="wrap">
+    <div class="card">
+      <img src="/favicon.ico" alt="Logo Intellih" style="width:64px;height:64px;margin-bottom:16px;"/>
+      <h1>Obrigado! 🎉</h1>
+      <p>Recebemos sua solicitação de <b>diagnóstico gratuito de automação</b>.</p>
+      <p>O e-book <i>“Automação Inteligente para Pequenos Negócios”</i> está pronto para baixar.</p>
+
+      <div style="margin-top:24px;">
+        <a href="/ebooks/ebook-automacao-inteligente.pdf" class="btn" download>📘 Baixar e-book</a>
+        <a href="https://www.intellih.com.br" target="_blank" class="btn alt">🌐 Visitar site Intellih</a>
+        <a href="/index.html" class="btn alt">⬅️ Voltar à página inicial</a>
+      </div>
+
+      <p style="margin-top:28px;font-size:15px;color:#ccc;">Enquanto isso, nossa equipe analisará seus dados e enviará o diagnóstico personalizado em breve.</p>
+    </div>
+  </main>
+
+  <footer class="wrap">
+    © 2025 Intellih Tecnologia · <a href="#" style="color:var(--brand)">Política de Privacidade</a>
+  </footer>
+
+  <script>
+    // dispara evento personalizado opcional
+    fbq('trackCustom', 'ThankYouVisit', { page: 'thankyou' });
+  </script>
 </body>
 </html>
-
