@@ -8,17 +8,29 @@
   <link rel="icon" href="/favicon.ico" />
 
   <style>
-    :root { --bg:#0a0a0a; --fg:#ffffff; --muted:#bfbfbf; --brand:#c44b04; --card:#121212; --stroke:#1e1e1e; }
+    :root {
+      --bg:#0a0a0a; --fg:#ffffff; --muted:#bfbfbf;
+      --brand:#c44b04; --card:#121212; --stroke:#1e1e1e;
+    }
     * { box-sizing: border-box; }
-    body { margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif; background:var(--bg); color:var(--fg); }
+    body {
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif;
+      background:var(--bg);
+      color:var(--fg);
+    }
     .wrap { max-width:1100px; margin:0 auto; padding:24px; }
-    .hero { display:grid; grid-template-columns: 1.2fr 1fr; gap:32px; align-items:center; padding:48px 0; }
+    .hero { display:grid; grid-template-columns:1.2fr 1fr; gap:32px; align-items:center; padding:48px 0; }
     .badge { display:inline-block; background:rgba(196,75,4,.15); color:#ffd9c2; border:1px solid rgba(196,75,4,.35); padding:6px 10px; border-radius:999px; font-size:12px; letter-spacing:.2px; }
-    h1 { font-size: clamp(28px, 5vw, 48px); line-height:1.1; margin:14px 0 12px; }
-    .sub { color: var(--muted); font-size: 18px; line-height:1.6; }
-    .cta { display:flex; gap:12px; margin-top:22px; flex-wrap: wrap; }
-    .btn { background:var(--brand); color:#fff; padding:14px 18px; border:none; border-radius:12px; font-weight:600; cursor:pointer; transition:.2s; }
-    .btn:hover { filter:brightness(1.05); transform: translateY(-1px); }
+    h1 { font-size:clamp(28px,5vw,48px); line-height:1.1; margin:14px 0 12px; }
+    .sub { color:var(--muted); font-size:18px; line-height:1.6; }
+    .cta { display:flex; gap:12px; margin-top:22px; flex-wrap:wrap; }
+    .btn {
+      background:var(--brand); color:#fff;
+      padding:14px 18px; border:none; border-radius:12px;
+      font-weight:600; cursor:pointer; transition:.2s;
+    }
+    .btn:hover { filter:brightness(1.05); transform:translateY(-1px); }
     .btn.alt { background:transparent; border:1px solid var(--stroke); color:#fff; }
     .card { background:var(--card); border:1px solid var(--stroke); border-radius:16px; padding:18px; }
     .grid-3 { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
@@ -27,15 +39,31 @@
     .kicker { color:var(--muted); font-size:14px; }
     .form { background:var(--card); border:1px solid var(--stroke); border-radius:16px; padding:18px; }
     label { font-size:14px; color:#eaeaea; display:block; margin:10px 0 6px; }
-    input, select, textarea { width:100%; padding:12px 12px; border-radius:10px; border:1px solid var(--stroke); background:#0f0f0f; color:#fff; }
+    input, select, textarea {
+      width:100%; padding:12px 12px; border-radius:10px;
+      border:1px solid var(--stroke); background:#0f0f0f; color:#fff;
+    }
     input::placeholder, textarea::placeholder { color:#8f8f8f; }
-    .checkbox-wrap { display:flex; align-items:flex-start; gap:8px; margin-top:14px; line-height:1.4; }
-    .checkbox-wrap input[type="checkbox"] { margin-top:3px; width:18px; height:18px; accent-color:var(--brand); }
-    .checkbox-wrap label { font-size:13.5px; color:#eaeaea; margin:0; cursor:pointer; }
+    .checkbox-wrap {
+      display:flex; align-items:flex-start; gap:8px;
+      margin-top:14px; line-height:1.4;
+    }
+    .checkbox-wrap input[type="checkbox"] {
+      margin-top:3px; width:18px; height:18px; accent-color:var(--brand);
+    }
+    .checkbox-wrap label {
+      font-size:13.5px; color:#eaeaea; margin:0; cursor:pointer;
+    }
     .checkbox-wrap a { color:var(--brand); text-decoration:none; }
     .muted { color:var(--muted); font-size:12px; }
-    footer { border-top:1px solid var(--stroke); margin-top:32px; padding:24px 0; color:var(--muted); font-size:14px; }
-    @media (max-width: 960px) { .hero { grid-template-columns: 1fr; } .grid-3, .how { grid-template-columns: 1fr; } }
+    footer {
+      border-top:1px solid var(--stroke); margin-top:32px;
+      padding:24px 0; color:var(--muted); font-size:14px;
+    }
+    @media (max-width:960px){
+      .hero { grid-template-columns:1fr; }
+      .grid-3,.how { grid-template-columns:1fr; }
+    }
   </style>
 </head>
 <body>
@@ -119,8 +147,8 @@
   </footer>
 
   <script>
-    const APPS_SCRIPT_URL = "https://script.google.com/macros/s/https://script.google.com/macros/s/AKfycbxigIA9nmhVKfcg_svQ1SNFaGHEmUXmXZf7ZHC7H_TUS-4FewnOwPFiiIdWK4ZWV-Qz/exec/exec";
-    const THANKYOU_URL = "/thankyou.html"; // garante redirecionamento absoluto
+    const APPS_SCRIPT_URL = "https://script.google.com/macros/s/SEU_SCRIPT_ID/exec"; // Substitua pelo seu Apps Script
+    const THANKYOU_URL = "/thankyou.html"; // Redirecionamento garantido
 
     const form = document.getElementById('leadForm');
     const btn = document.getElementById('submitBtn');
@@ -141,19 +169,17 @@
         ts: new Date().toISOString()
       };
 
+      // Envia sem bloquear o redirecionamento
       try {
-        fetch(APPS_SCRIPT_URL, {
-          method: 'POST',
-          mode: 'no-cors',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(payload)
-        });
-      } catch(e) {
-        console.warn("Falha no envio", e);
+        navigator.sendBeacon(APPS_SCRIPT_URL, JSON.stringify(payload));
+      } catch (err) {
+        console.warn("Falha no envio", err);
       }
 
       msg.textContent = "✅ Enviado! Redirecionando...";
-      setTimeout(() => { window.location.href = THANKYOU_URL; }, 800);
+      setTimeout(() => {
+        window.location.assign(THANKYOU_URL);
+      }, 1000);
     });
   </script>
 </body>
