@@ -118,10 +118,7 @@
 
         <div class="checkbox-wrap">
           <input id="lgpd" type="checkbox" required />
-          <label for="lgpd">
-            Concordo em receber comunicações e com a
-            <a href="#" target="_blank">política de privacidade</a>.
-          </label>
+          <label for="lgpd">Concordo em receber comunicações e com a <a href="#" target="_blank">política de privacidade</a>.</label>
         </div>
 
         <button id="submitBtn" class="btn" type="submit" style="margin-top:16px">Enviar e baixar e-book</button>
@@ -136,7 +133,7 @@
   </footer>
 
   <script>
-    const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwDwq2PAKtwIp6lOps4dU3lGOlx3MrLt2KfQwWrKsI04kFP2H6KHu25RRorgMTMASQm/exec/exec"; // troque pelo seu URL publicado
+    const APPS_SCRIPT_URL = "https://script.google.com/macros/s/https://script.google.com/macros/s/AKfycbwDwq2PAKtwIp6lOps4dU3lGOlx3MrLt2KfQwWrKsI04kFP2H6KHu25RRorgMTMASQm/exec/exec"; // coloque o link do seu Web App
     const EBOOK_PATH = "ebooks/ebook-automacao-inteligente.pdf";
     const THANKYOU_URL = "https://thankyou.intellih.com.br";
 
@@ -160,12 +157,14 @@
       };
 
       try {
-        const response = await fetch(APPS_SCRIPT_URL, {
+        await fetch(APPS_SCRIPT_URL, {
           method: 'POST',
+          mode: 'no-cors',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(payload)
         });
 
+        // Baixa o e-book e redireciona
         const a = document.createElement('a');
         a.href = EBOOK_PATH;
         a.download = "ebook-automacao-inteligente.pdf";
