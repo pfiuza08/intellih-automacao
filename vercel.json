@@ -1,6 +1,5 @@
 {
   "version": 2,
-  "alias": "automacao.intellih.com.br",
   "routes": [
     {
       "src": "/(.*)",
@@ -26,4 +25,3 @@
     }
   ]
 }
-
