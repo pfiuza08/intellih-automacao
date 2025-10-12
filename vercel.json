@@ -1,5 +1,14 @@
 {
   "version": 2,
+  "headers": [
+    {
+      "source": "/ebooks/(.*).pdf",
+      "headers": [
+        { "key": "Content-Type", "value": "application/pdf" },
+        { "key": "Content-Disposition", "value": "inline" }
+      ]
+    }
+  ],
   "routes": [
     {
       "src": "/(.*)",
@@ -12,10 +21,6 @@
       "dest": "/thankyou.html"
     },
     {
-      "src": "/formulario",
-      "dest": "/formulario.html"
-    },
-    {
       "src": "/thankyou",
       "dest": "/thankyou.html"
     },
@@ -25,4 +30,5 @@
     }
   ]
 }
+
 
