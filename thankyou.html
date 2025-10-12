@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Obrigado! | Intellih Tecnologia</title>
-  <meta name="description" content="Seu diagnóstico de automação foi enviado com sucesso! Baixe o e-book e descubra como automatizar seu negócio com IA.">
+  <meta name="description" content="Seu diagnóstico de automação foi enviado com sucesso! Baixe o e-book e agende sua consultoria gratuita com a Intellih.">
   <link rel="icon" href="/favicon.ico" />
 
   <!-- Meta Pixel Code -->
@@ -18,9 +18,9 @@
       s.parentNode.insertBefore(t,s)
     })(window,document,'script',
       'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '1240394014783181');
+    fbq('init', '1240394014783181'); // Seu Pixel
     fbq('track', 'PageView');
-    fbq('track', 'Lead');
+    fbq('track', 'Lead'); // Evento principal de conversão
   </script>
   <noscript><img height="1" width="1" style="display:none"
   src="https://www.facebook.com/tr?id=1240394014783181&ev=Lead&noscript=1"/></noscript>
@@ -36,9 +36,10 @@
     .card{background:var(--card);border:1px solid var(--stroke);border-radius:16px;padding:40px 30px;margin-top:48px;}
     h1{font-size:clamp(26px,5vw,42px);margin-bottom:12px;}
     p{color:var(--muted);font-size:17px;line-height:1.7;max-width:600px;margin:0 auto 20px;}
-    .btn{background:var(--brand);color:#fff;padding:14px 18px;border:none;border-radius:12px;font-weight:600;cursor:pointer;transition:.2s;margin:8px;}
+    .btn{background:var(--brand);color:#fff;padding:14px 18px;border:none;border-radius:12px;font-weight:600;cursor:pointer;transition:.2s;margin:8px;text-decoration:none;display:inline-block;}
     .btn:hover{filter:brightness(1.05);transform:translateY(-1px);}
     .btn.alt{background:transparent;border:1px solid var(--stroke);}
+    .btn.whats{background:#25D366;color:#fff;}
     footer{border-top:1px solid var(--stroke);margin-top:64px;padding:24px 0;color:var(--muted);font-size:14px;}
   </style>
 </head>
@@ -57,7 +58,20 @@
         <a href="/index.html" class="btn alt">⬅️ Voltar à página inicial</a>
       </div>
 
-      <p style="margin-top:28px;font-size:15px;color:#ccc;">Enquanto isso, nossa equipe analisará seus dados e enviará o diagnóstico personalizado em breve.</p>
+      <hr style="margin:40px auto;width:80%;border:0;border-top:1px solid var(--stroke);">
+
+      <h2 style="color:#fff;margin-bottom:8px;">💬 Quer acelerar seus resultados?</h2>
+      <p style="color:#ccc;margin-bottom:20px;">
+        Agende agora uma <b>consultoria gratuita com a Intellih</b> e descubra como aplicar automação inteligente no seu negócio.
+      </p>
+      <a id="btnWhats" 
+         href="https://wa.me/55995558808?text=Olá!%20Quero%20agendar%20minha%20consultoria%20de%20automação%20gratuita%20da%20Intellih." 
+         target="_blank" 
+         class="btn whats">💬 Falar com Especialista no WhatsApp</a>
+
+      <p style="margin-top:28px;font-size:15px;color:#ccc;">
+        Nossa equipe analisará seus dados e enviará o diagnóstico personalizado em breve.
+      </p>
     </div>
   </main>
 
@@ -66,8 +80,13 @@
   </footer>
 
   <script>
-    // dispara evento personalizado opcional
+    // Dispara evento customizado adicional
     fbq('trackCustom', 'ThankYouVisit', { page: 'thankyou' });
+
+    // Evento de clique no botão de consultoria (WhatsApp)
+    document.getElementById('btnWhats').addEventListener('click', function(){
+      fbq('trackCustom', 'ConsultoriaClick', { action: 'whatsapp' });
+    });
   </script>
 </body>
 </html>
