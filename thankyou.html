@@ -4,16 +4,27 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Obrigado! | Intellih Tecnologia</title>
-  <link rel="icon" href="favicon.ico">
+  <link rel="icon" href="/favicon.ico">
   <style>
-    body{background:#0a0a0a;color:#fff;font-family:Segoe UI,Arial,sans-serif;text-align:center;padding:60px 20px;}
-    a.btn{background:#c44b04;color:#fff;text-decoration:none;padding:12px 18px;border-radius:10px;display:inline-block;margin-top:24px;}
+    :root {
+      --bg:#0a0a0a; --fg:#ffffff; --muted:#bfbfbf; --brand:#c44b04; --card:#121212; --stroke:#1e1e1e;
+    }
+    body { margin:0; font-family:Segoe UI,Arial,sans-serif; background:var(--bg); color:var(--fg); display:flex; justify-content:center; align-items:center; min-height:100vh; text-align:center; padding:20px; }
+    .box { max-width:500px; background:var(--card); border:1px solid var(--stroke); border-radius:16px; padding:32px; }
+    h1 { color:#fff; margin-bottom:12px; }
+    p { color:var(--muted); line-height:1.6; margin-bottom:24px; }
+    .btn { background:var(--brand); color:#fff; padding:14px 20px; border-radius:10px; text-decoration:none; display:inline-block; font-weight:600; transition:.2s; }
+    .btn:hover { filter:brightness(1.1); transform:translateY(-1px); }
   </style>
 </head>
 <body>
-  <h1>🎉 Obrigado!</h1>
-  <p>Recebemos suas informações. Nosso time entrará em contato com seu diagnóstico personalizado.</p>
-  <p>Se quiser, baixe novamente o e-book abaixo:</p>
-  <a href="ebooks/ebook-automacao-inteligente.pdf" class="btn" download>📘 Baixar e-book</a>
+  <div class="box">
+    <h1>🎉 Obrigado!</h1>
+    <p>Recebemos suas informações. Nossa equipe analisará seus dados e enviará um diagnóstico personalizado em breve.</p>
+    <p>Enquanto isso, você pode baixar novamente o e-book abaixo:</p>
+    <a href="ebooks/ebook-automacao-inteligente.pdf" class="btn" download>📘 Baixar e-book</a>
+    <br><br>
+    <a href="https://automacao.intellih.com.br" class="btn" style="background:#222;border:1px solid #444;">⬅️ Voltar ao site</a>
+  </div>
 </body>
 </html>
