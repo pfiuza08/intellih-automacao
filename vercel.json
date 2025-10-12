@@ -8,9 +8,5 @@
         { "key": "Content-Disposition", "value": "inline" }
       ]
     }
-  ],
-  "rewrites": [
-    { "source": "/thankyou", "destination": "/thankyou.html" },
-    { "source": "/(.*)", "destination": "/index.html" }
   ]
 }
