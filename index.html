@@ -137,7 +137,7 @@
   <footer class="wrap">© 2025 Intellih Tecnologia · <a href="#" style="color:var(--brand)">Política de Privacidade</a></footer>
 
   <script>
-    const APPS_SCRIPT_URL = "https://script.google.com/macros/s/SEU_SCRIPT_ID/exec"; // insira o seu link do Apps Script
+    const APPS_SCRIPT_URL = "https://script.google.com/macros/s/SEU_SCRIPT_ID/exec"; // substitua pelo seu URL do Apps Script
     const EBOOK_PATH = "/ebooks/ebook-automacao-inteligente.pdf";
 
     const form = document.getElementById('leadForm');
@@ -178,12 +178,18 @@
       a.click();
       a.remove();
 
-      // Evento Pixel: download concluído
+      // Evento Pixel
       fbq('trackCustom', 'EbookDownload', { ebook: 'Automacao Inteligente' });
 
-      msg.textContent = "Pronto! O e-book está sendo baixado. Você receberá seu diagnóstico em breve.";
+      // Feedback visual
+      msg.textContent = "E-book baixando... você será redirecionado.";
       btn.disabled = false;
       form.reset();
+
+      // Redireciona após 2 segundos
+      setTimeout(() => {
+        window.location.href = "/thankyou.html";
+      }, 2000);
     });
   </script>
 </body>
