@@ -9,26 +9,25 @@
       ]
     }
   ],
-  "routes": [
+  "rewrites": [
     {
-      "src": "/(.*)",
+      "source": "/(.*)",
       "has": [{ "type": "host", "value": "formulario.intellih.com.br" }],
-      "dest": "/formulario.html"
+      "destination": "/formulario.html"
     },
     {
-      "src": "/(.*)",
+      "source": "/(.*)",
       "has": [{ "type": "host", "value": "thankyou.intellih.com.br" }],
-      "dest": "/thankyou.html"
+      "destination": "/thankyou.html"
     },
     {
-      "src": "/thankyou",
-      "dest": "/thankyou.html"
+      "source": "/thankyou",
+      "destination": "/thankyou.html"
     },
     {
-      "src": "/(.*)",
-      "dest": "/index.html"
+      "source": "/(.*)",
+      "destination": "/index.html"
     }
   ]
 }
-
 
