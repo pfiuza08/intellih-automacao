@@ -7,9 +7,6 @@
   <meta name="description" content="Receba um diagnóstico gratuito de automação e faça o download imediato do e-book Automação Inteligente para Pequenos Negócios.">
   <link rel="icon" href="/favicon.ico" />
 
-  <!-- Meta Pixel / GTM (cole aqui seus scripts) -->
-  <!-- <script> ... </script> -->
-
   <style>
     :root {
       --bg:#0a0a0a; --fg:#ffffff; --muted:#bfbfbf; --brand:#c44b04; --card:#121212; --stroke:#1e1e1e;
@@ -34,6 +31,10 @@
     label { font-size:14px; color:#eaeaea; display:block; margin:10px 0 6px; }
     input, select, textarea { width:100%; padding:12px 12px; border-radius:10px; border:1px solid var(--stroke); background:#0f0f0f; color:#fff; }
     input::placeholder, textarea::placeholder { color:#8f8f8f; }
+    .checkbox-wrap { display:flex; align-items:flex-start; gap:8px; margin-top:14px; line-height:1.4; }
+    .checkbox-wrap input[type="checkbox"] { margin-top:3px; width:18px; height:18px; accent-color:var(--brand); }
+    .checkbox-wrap label { font-size:13.5px; color:#eaeaea; margin:0; cursor:pointer; }
+    .checkbox-wrap a { color:var(--brand); text-decoration:none; }
     .muted { color:var(--muted); font-size:12px; }
     footer { border-top:1px solid var(--stroke); margin-top:32px; padding:24px 0; color:var(--muted); font-size:14px; }
     @media (max-width: 960px) {
@@ -115,16 +116,19 @@
         <label for="desafio">Principal desafio</label>
         <textarea id="desafio" name="desafio" rows="4" placeholder="Conte rapidamente onde a automação ajudaria..."></textarea>
 
-        <div style="display:flex; align-items:center; gap:10px; margin-top:12px">
+        <div class="checkbox-wrap">
           <input id="lgpd" type="checkbox" required />
-          <label for="lgpd" style="margin:0">Concordo em receber comunicações e com a política de privacidade.</label>
+          <label for="lgpd">
+            Concordo em receber comunicações e com a
+            <a href="#" target="_blank">política de privacidade</a>.
+          </label>
         </div>
 
         <button id="submitBtn" class="btn" type="submit" style="margin-top:16px">Enviar e baixar e-book</button>
         <p id="msg" class="kicker" style="margin-top:10px"></p>
       </form>
     </div>
-    <p class="muted" style="margin-top:10px">* Seus dados são usados apenas para o diagnóstico e envio de materiais relevantes. </p>
+    <p class="muted" style="margin-top:10px">* Seus dados são usados apenas para o diagnóstico e envio de materiais relevantes.</p>
   </section>
 
   <footer class="wrap">
@@ -132,53 +136,53 @@
   </footer>
 
   <script>
-    // ===== CONFIG =====
-    const APPS_SCRIPT_URL = "https://script.google.com/macros/s/https://script.google.com/macros/s/AKfycbxcizzMSUvBGj9FgmoxSrXqpl7_cPiZt8hXiadvep6m0pBM6oU_EfiwJR3NSbDeKgfn/exec/exec"; // troque pelo seu URL publicado
-    const EBOOK_PATH = "ebooks/ebook-automacao-inteligente.pdf"; // o arquivo deve estar em /ebooks/
-    // ==================
+    const APPS_SCRIPT_URL = "https://script.google.com/macros/s/SEU_SCRIPT_ID/exec"; // troque pelo seu URL publicado
+    const EBOOK_PATH = "ebooks/ebook-automacao-inteligente.pdf";
+    const THANKYOU_URL = "https://thankyou.intellih.com.br";
 
     const form = document.getElementById('leadForm');
-    const btn  = document.getElementById('submitBtn');
-    const msg  = document.getElementById('msg');
+    const btn = document.getElementById('submitBtn');
+    const msg = document.getElementById('msg');
 
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
       msg.textContent = "Enviando...";
       btn.disabled = true;
 
-      // Coleta
       const payload = {
-        nome:   document.getElementById('nome').value.trim(),
-        email:  document.getElementById('email').value.trim(),
-        whats:  document.getElementById('whats').value.trim(),
-        tipo:   document.getElementById('tipo').value,
-        desafio:document.getElementById('desafio').value.trim(),
+        nome: document.getElementById('nome').value.trim(),
+        email: document.getElementById('email').value.trim(),
+        whats: document.getElementById('whats').value.trim(),
+        tipo: document.getElementById('tipo').value,
+        desafio: document.getElementById('desafio').value.trim(),
         origem: window.location.href,
         ts: new Date().toISOString()
       };
 
-      // Envia ao Apps Script
       try {
-        await fetch(APPS_SCRIPT_URL, {
+        const response = await fetch(APPS_SCRIPT_URL, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(payload)
         });
+
+        const a = document.createElement('a');
+        a.href = EBOOK_PATH;
+        a.download = "ebook-automacao-inteligente.pdf";
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+
+        msg.textContent = "✅ E-book baixando... redirecionando.";
+        setTimeout(() => window.location.href = THANKYOU_URL, 1500);
+
       } catch (err) {
         console.error("Erro ao enviar:", err);
+        msg.textContent = "❌ Erro ao enviar. Tente novamente.";
+      } finally {
+        btn.disabled = false;
+        form.reset();
       }
-
-      // Dispara download automático
-      const a = document.createElement('a');
-      a.href = EBOOK_PATH;
-      a.download = "ebook-automacao-inteligente.pdf";
-      document.body.appendChild(a);
-      a.click();
-      a.remove();
-
-      msg.textContent = "✅ E-book baixando... aguarde seu diagnóstico por e-mail.";
-      btn.disabled = false;
-      form.reset();
     });
   </script>
 </body>
