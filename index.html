@@ -146,95 +146,51 @@
     © 2025 Intellih Tecnologia · <a href="#" style="color:var(--brand)">Política de Privacidade</a>
   </footer>
 
-  <script>
-    const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwUOO4fHSeluuK_MlQ9vMkckmtxAejrjUUB2z8kJ_DFkmBk2r-qJVcn-4L8ADoJRVE0/exec/exec"; // Substitua pelo seu Apps Script publicado (/exec)
-    const THANKYOU_URL = "/thankyou.html";
+ <script>
+const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwUOO4fHSeluuK_MlQ9vMkckmtxAejrjUUB2z8kJ_DFkmBk2r-qJVcn-4L8ADoJRVE0/exec";
+const THANKYOU_URL = "/thankyou.html";
 
-    const form = document.getElementById('leadForm');
-    const btn  = document.getElementById('submitBtn');
-    const msg  = document.getElementById('msg');
+const form = document.getElementById('leadForm');
+const btn  = document.getElementById('submitBtn');
+const msg  = document.getElementById('msg');
 
-    // Converte objeto em x-www-form-urlencoded
-    function toFormUrlEncoded(obj){
-      const params = [];
-      for (const k in obj) {
-        if (!Object.prototype.hasOwnProperty.call(obj, k)) continue;
-        params.push(encodeURIComponent(k) + "=" + encodeURIComponent(obj[k]));
-      }
-      return params.join("&");
-    }
+form.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  msg.textContent = "Enviando...";
+  btn.disabled = true;
 
-    // Envio robusto: JSON -> (fallback) urlencoded -> (fallback) sendBeacon urlencoded
-    async function sendLead(payload){
-      // 1) Tenta JSON
-      try {
-        const controller = new AbortController();
-        const t = setTimeout(() => controller.abort(), 8000); // timeout de 8s
-        const res = await fetch(APPS_SCRIPT_URL, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(payload),
-          signal: controller.signal
-        });
-        clearTimeout(t);
-        // Mesmo que não dê 200, o Apps Script costuma processar — consideramos enviado.
-        return true;
-      } catch (e1) {
-        console.warn("Falha JSON, tentando urlencoded...", e1);
-        // 2) Tenta form-urlencoded
-        try {
-          await fetch(APPS_SCRIPT_URL, {
-            method: "POST",
-            headers: { "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8" },
-            body: toFormUrlEncoded(payload)
-          });
-          return true;
-        } catch (e2) {
-          console.warn("Falha urlencoded, tentando sendBeacon...", e2);
-          // 3) Último recurso: sendBeacon urlencoded
-          try {
-            const ok = navigator.sendBeacon(APPS_SCRIPT_URL, toFormUrlEncoded(payload));
-            return ok; // true/false
-          } catch (e3) {
-            console.warn("Falha sendBeacon", e3);
-            return false;
-          }
-        }
-      }
-    }
+  const payload = {
+    nome:   document.getElementById('nome').value.trim(),
+    email:  document.getElementById('email').value.trim(),
+    whats:  document.getElementById('whats').value.trim(),
+    tipo:   document.getElementById('tipo').value,
+    desafio:document.getElementById('desafio').value.trim(),
+    origem: window.location.href,
+    ts: new Date().toISOString()
+  };
 
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      msg.textContent = "Enviando...";
-      btn.disabled = true;
+  console.log("📦 Payload que será enviado:", payload);
 
-      const payload = {
-        nome:   document.getElementById('nome').value.trim(),
-        email:  document.getElementById('email').value.trim(),
-        whats:  document.getElementById('whats').value.trim(),
-        tipo:   document.getElementById('tipo').value,
-        desafio:document.getElementById('desafio').value.trim(),
-        origem: window.location.href,
-        ts: new Date().toISOString()
-      };
-
-      let sent = false;
-      try {
-        sent = await sendLead(payload);
-      } catch (err) {
-        console.error("Erro inesperado no envio:", err);
-      }
-
-      if (sent) {
-        msg.textContent = "✅ Enviado! Redirecionando...";
-        setTimeout(() => window.location.assign(THANKYOU_URL), 900);
-      } else {
-        msg.textContent = "❌ Erro ao enviar. Tente novamente.";
-      }
-
-      btn.disabled = false;
+  try {
+    const res = await fetch(APPS_SCRIPT_URL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload)
     });
-     
-  </script>
+
+    const text = await res.text();
+    console.log("📬 Resposta do Apps Script:", text);
+    msg.textContent = "✅ Enviado! Redirecionando...";
+    setTimeout(() => window.location.href = THANKYOU_URL, 1200);
+
+  } catch (err) {
+    console.error("❌ Erro ao enviar:", err);
+    msg.textContent = "❌ Erro ao enviar. Veja o console (F12).";
+  }
+
+  btn.disabled = false;
+});
+</script>
+
 </body>
 </html>
