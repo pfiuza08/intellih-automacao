@@ -219,7 +219,7 @@
       };
 
       let sent = false;
-      /*try {
+      try {
         sent = await sendLead(payload);
       } catch (err) {
         console.error("Erro inesperado no envio:", err);
@@ -233,31 +233,8 @@
       }
 
       btn.disabled = false;
-    });*/
-try {
-  const response = await fetch(APPS_SCRIPT_URL, {
-    method: "POST",
-    mode: "cors", // 👈 importante: permite envio para outro domínio
-    headers: {
-      "Content-Type": "application/json",
-      "Accept": "application/json"
-    },
-    body: JSON.stringify(payload)
-  });
-
-  const result = await response.text();
-  console.log("Resposta do Apps Script:", result);
-
-  msg.textContent = "✅ Enviado! Redirecionando...";
-  setTimeout(() => window.location.href = THANKYOU_URL, 800);
-
-} catch (err) {
-  console.error("Erro ao enviar:", err);
-  msg.textContent = "❌ Erro ao enviar. Tente novamente.";
-} finally {
-  btn.disabled = false;
-}
-      
+    };
+     
   </script>
 </body>
 </html>
