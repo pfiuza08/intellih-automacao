@@ -4,23 +4,33 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Automação Inteligente | Intellih Tecnologia</title>
-  <meta name="description" content="Receba um diagnóstico gratuito de automação e faça o download imediato do e-book Automação Inteligente para Pequenos Negócios.">
+  <meta name="description" content="Receba um diagnóstico gratuito de automação e baixe o e-book Automação Inteligente para Pequenos Negócios.">
   <link rel="icon" href="/favicon.ico" />
 
   <style>
     :root {
-      --bg:#0a0a0a; --fg:#ffffff; --muted:#bfbfbf; --brand:#c44b04; --card:#121212; --stroke:#1e1e1e;
+      --bg:#0a0a0a; --fg:#ffffff; --muted:#bfbfbf;
+      --brand:#c44b04; --card:#121212; --stroke:#1e1e1e;
     }
     * { box-sizing: border-box; }
-    body { margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif; background:var(--bg); color:var(--fg); }
+    body {
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif;
+      background:var(--bg);
+      color:var(--fg);
+    }
     .wrap { max-width:1100px; margin:0 auto; padding:24px; }
-    .hero { display:grid; grid-template-columns: 1.2fr 1fr; gap:32px; align-items:center; padding:48px 0; }
+    .hero { display:grid; grid-template-columns:1.2fr 1fr; gap:32px; align-items:center; padding:48px 0; }
     .badge { display:inline-block; background:rgba(196,75,4,.15); color:#ffd9c2; border:1px solid rgba(196,75,4,.35); padding:6px 10px; border-radius:999px; font-size:12px; letter-spacing:.2px; }
-    h1 { font-size: clamp(28px, 5vw, 48px); line-height:1.1; margin:14px 0 12px; }
-    .sub { color: var(--muted); font-size: 18px; line-height:1.6; }
-    .cta { display:flex; gap:12px; margin-top:22px; flex-wrap: wrap; }
-    .btn { background:var(--brand); color:#fff; padding:14px 18px; border:none; border-radius:12px; font-weight:600; cursor:pointer; transition:.2s; }
-    .btn:hover { filter:brightness(1.05); transform: translateY(-1px); }
+    h1 { font-size:clamp(28px,5vw,48px); line-height:1.1; margin:14px 0 12px; }
+    .sub { color:var(--muted); font-size:18px; line-height:1.6; }
+    .cta { display:flex; gap:12px; margin-top:22px; flex-wrap:wrap; }
+    .btn {
+      background:var(--brand); color:#fff;
+      padding:14px 18px; border:none; border-radius:12px;
+      font-weight:600; cursor:pointer; transition:.2s;
+    }
+    .btn:hover { filter:brightness(1.05); transform:translateY(-1px); }
     .btn.alt { background:transparent; border:1px solid var(--stroke); color:#fff; }
     .card { background:var(--card); border:1px solid var(--stroke); border-radius:16px; padding:18px; }
     .grid-3 { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
@@ -29,13 +39,30 @@
     .kicker { color:var(--muted); font-size:14px; }
     .form { background:var(--card); border:1px solid var(--stroke); border-radius:16px; padding:18px; }
     label { font-size:14px; color:#eaeaea; display:block; margin:10px 0 6px; }
-    input, select, textarea { width:100%; padding:12px 12px; border-radius:10px; border:1px solid var(--stroke); background:#0f0f0f; color:#fff; }
+    input, select, textarea {
+      width:100%; padding:12px 12px; border-radius:10px;
+      border:1px solid var(--stroke); background:#0f0f0f; color:#fff;
+    }
     input::placeholder, textarea::placeholder { color:#8f8f8f; }
+    .checkbox-wrap {
+      display:flex; align-items:flex-start; gap:8px;
+      margin-top:14px; line-height:1.4;
+    }
+    .checkbox-wrap input[type="checkbox"] {
+      margin-top:3px; width:18px; height:18px; accent-color:var(--brand);
+    }
+    .checkbox-wrap label {
+      font-size:13.5px; color:#eaeaea; margin:0; cursor:pointer;
+    }
+    .checkbox-wrap a { color:var(--brand); text-decoration:none; }
     .muted { color:var(--muted); font-size:12px; }
-    footer { border-top:1px solid var(--stroke); margin-top:32px; padding:24px 0; color:var(--muted); font-size:14px; }
-    @media (max-width: 960px) {
-      .hero { grid-template-columns: 1fr; }
-      .grid-3, .how { grid-template-columns: 1fr; }
+    footer {
+      border-top:1px solid var(--stroke); margin-top:32px;
+      padding:24px 0; color:var(--muted); font-size:14px;
+    }
+    @media (max-width:960px){
+      .hero { grid-template-columns:1fr; }
+      .grid-3,.how { grid-template-columns:1fr; }
     }
   </style>
 </head>
@@ -47,7 +74,7 @@
         <span class="badge">Intellih Tecnologia</span>
         <h1>Automatize processos, reduza custos e <span style="color:var(--brand)">escale resultados</span>.</h1>
         <p class="sub">
-          Receba um <b>diagnóstico gratuito</b> e faça o <b>download</b> do e-book
+          Receba um <b>diagnóstico gratuito</b> e baixe o e-book
           <i>“Automação Inteligente para Pequenos Negócios”</i>.
         </p>
         <div class="cta">
@@ -77,15 +104,6 @@
     </div>
   </section>
 
-  <section class="wrap" id="como-funciona" style="padding-bottom:32px">
-    <h2>Como funciona</h2>
-    <div class="how">
-      <div class="step"><b>1.</b> Preencha o formulário.</div>
-      <div class="step"><b>2.</b> Clique em enviar e receba seu e-book.</div>
-      <div class="step"><b>3.</b> Receba seu diagnóstico personalizado.</div>
-    </div>
-  </section>
-
   <section id="form" class="wrap">
     <div class="form">
       <h2 style="margin-top:0">Diagnóstico + E-book</h2>
@@ -112,16 +130,16 @@
         <label for="desafio">Principal desafio</label>
         <textarea id="desafio" name="desafio" rows="4" placeholder="Conte rapidamente onde a automação ajudaria..."></textarea>
 
-        <div style="display:flex; align-items:flex-start; gap:8px; margin-top:14px">
-          <input id="lgpd" type="checkbox" required style="margin-top:3px" />
-          <label for="lgpd" style="margin:0; font-size:13px; line-height:1.4">Concordo em receber comunicações e com a política de privacidade.</label>
+        <div class="checkbox-wrap">
+          <input id="lgpd" type="checkbox" required />
+          <label for="lgpd">Concordo em receber comunicações e com a <a href="#" target="_blank">política de privacidade</a>.</label>
         </div>
 
         <button id="submitBtn" class="btn" type="submit" style="margin-top:16px">Enviar</button>
         <p id="msg" class="kicker" style="margin-top:10px"></p>
       </form>
     </div>
-    <p class="muted" style="margin-top:10px">* Seus dados são usados apenas para o diagnóstico e envio de materiais relevantes. </p>
+    <p class="muted" style="margin-top:10px">* Seus dados são usados apenas para o diagnóstico e envio de materiais relevantes.</p>
   </section>
 
   <footer class="wrap">
@@ -129,46 +147,39 @@
   </footer>
 
   <script>
-    // ===== CONFIG =====
-    const APPS_SCRIPT_URL = "https://script.google.com/macros/s/https://script.google.com/macros/s/AKfycbxYbWXqaa6Y6CdoA1c9BZv73dGBSCzFfMQYr23lz4ppRmSQnaE5STcgsga78uazWPUG/exec/exec"; // 🔗 substitua pelo link real publicado
-    // ==================
+    const APPS_SCRIPT_URL = "https://script.google.com/macros/s/https://script.google.com/macros/s/AKfycbxYbWXqaa6Y6CdoA1c9BZv73dGBSCzFfMQYr23lz4ppRmSQnaE5STcgsga78uazWPUG/exec/exec"; // Substitua pelo seu Apps Script
+    const THANKYOU_URL = "/thankyou.html"; // Redirecionamento garantido
 
     const form = document.getElementById('leadForm');
-    const btn  = document.getElementById('submitBtn');
-    const msg  = document.getElementById('msg');
+    const btn = document.getElementById('submitBtn');
+    const msg = document.getElementById('msg');
 
-    form.addEventListener('submit', async (e) => {
+    form.addEventListener('submit', (e) => {
       e.preventDefault();
       msg.textContent = "Enviando...";
       btn.disabled = true;
 
       const payload = {
-        nome:   document.getElementById('nome').value.trim(),
-        email:  document.getElementById('email').value.trim(),
-        whats:  document.getElementById('whats').value.trim(),
-        tipo:   document.getElementById('tipo').value,
-        desafio:document.getElementById('desafio').value.trim(),
+        nome: document.getElementById('nome').value.trim(),
+        email: document.getElementById('email').value.trim(),
+        whats: document.getElementById('whats').value.trim(),
+        tipo: document.getElementById('tipo').value,
+        desafio: document.getElementById('desafio').value.trim(),
         origem: window.location.href,
         ts: new Date().toISOString()
       };
 
+      // Envia sem bloquear o redirecionamento
       try {
-        // 👇 Envio ajustado (sem no-cors)
-        await fetch(APPS_SCRIPT_URL, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(payload)
-        });
-
-        msg.textContent = "✅ Enviado! Redirecionando...";
-        setTimeout(() => window.location.href = "/thankyou.html", 800);
-
+        navigator.sendBeacon(APPS_SCRIPT_URL, JSON.stringify(payload));
       } catch (err) {
-        console.error(err);
-        msg.textContent = "❌ Erro ao enviar. Tente novamente.";
-      } finally {
-        btn.disabled = false;
+        console.warn("Falha no envio", err);
       }
+
+      msg.textContent = "✅ Enviado! Redirecionando...";
+      setTimeout(() => {
+        window.location.assign(THANKYOU_URL);
+      }, 1000);
     });
   </script>
 </body>
