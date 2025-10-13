@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Política de Privacidade | Intellih Tecnologia</title>
+  <meta name="description" content="Política de Privacidade - Intellih Tecnologia">
+  <link rel="icon" href="/favicon.ico">
+  <style>
+    body {
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      margin: 0; padding: 40px 20px;
+      background: #0a0a0a; color: #fff;
+      line-height: 1.6;
+    }
+    main {
+      max-width: 850px; margin: auto;
+      background: #121212; padding: 32px;
+      border-radius: 16px; border: 1px solid #1e1e1e;
+    }
+    h1 { color: #c44b04; font-size: 28px; margin-bottom: 10px; }
+    h2 { color: #c44b04; font-size: 20px; margin-top: 24px; }
+    a { color: #c44b04; text-decoration: none; }
+    footer { text-align: center; margin-top: 32px; color: #bbb; font-size: 13px; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Política de Privacidade</h1>
+    <p>Na <strong>Intellih Tecnologia</strong>, respeitamos a sua privacidade e estamos comprometidos em proteger os seus dados pessoais.</p>
+
+    <h2>1. Coleta de informações</h2>
+    <p>Coletamos apenas as informações necessárias para oferecer nossos serviços, como nome, e-mail, WhatsApp, tipo de negócio e principal desafio. Esses dados são informados voluntariamente pelo usuário ao preencher o formulário de diagnóstico gratuito.</p>
+
+    <h2>2. Uso das informações</h2>
+    <p>As informações coletadas são utilizadas para:</p>
+    <ul>
+      <li>Entrar em contato com você e oferecer o diagnóstico gratuito de automação;</li>
+      <li>Enviar o e-book solicitado e materiais relacionados ao tema de automação inteligente;</li>
+      <li>Melhorar nossos serviços e comunicações;</li>
+      <li>Atender solicitações e dúvidas enviadas por você.</li>
+    </ul>
+
+    <h2>3. Compartilhamento de dados</h2>
+    <p>Não compartilhamos suas informações com terceiros, exceto quando exigido por lei ou quando necessário para execução de serviços (como provedores de e-mail e hospedagem seguros).</p>
+
+    <h2>4. Armazenamento e segurança</h2>
+    <p>Os dados são armazenados com segurança em servidores e planilhas do Google, acessíveis apenas por nossa equipe autorizada.</p>
+
+    <h2>5. Seus direitos</h2>
+    <p>Você pode solicitar, a qualquer momento, a atualização ou exclusão dos seus dados pessoais, enviando um e-mail para <a href="mailto:intellih.tec@gmail.com">intellih.tec@gmail.com</a>.</p>
+
+    <h2>6. Alterações nesta política</h2>
+    <p>Podemos atualizar esta Política de Privacidade periodicamente. A versão mais recente estará sempre disponível em nosso site.</p>
+
+    <h2>7. Contato</h2>
+    <p>Em caso de dúvidas sobre esta política, entre em contato pelo e-mail <a href="mailto:intellih.tec@gmail.com">intellih.tec@gmail.com</a>.</p>
+
+    <p>Última atualização: outubro de 2025</p>
+  </main>
+
+  <footer>
+    © 2025 Intellih Tecnologia · Todos os direitos reservados.
+  </footer>
+</body>
+</html>
