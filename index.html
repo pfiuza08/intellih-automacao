@@ -147,39 +147,92 @@
   </footer>
 
   <script>
-    const APPS_SCRIPT_URL = "https://script.google.com/macros/s/https://script.google.com/macros/s/AKfycbxYbWXqaa6Y6CdoA1c9BZv73dGBSCzFfMQYr23lz4ppRmSQnaE5STcgsga78uazWPUG/exec/exec"; // Substitua pelo seu Apps Script
-    const THANKYOU_URL = "/thankyou.html"; // Redirecionamento garantido
+    const APPS_SCRIPT_URL = "https://script.google.com/macros/s/https://script.google.com/macros/s/AKfycbxYbWXqaa6Y6CdoA1c9BZv73dGBSCzFfMQYr23lz4ppRmSQnaE5STcgsga78uazWPUG/exec/exec"; // Substitua pelo seu Apps Script publicado (/exec)
+    const THANKYOU_URL = "/thankyou.html";
 
     const form = document.getElementById('leadForm');
-    const btn = document.getElementById('submitBtn');
-    const msg = document.getElementById('msg');
+    const btn  = document.getElementById('submitBtn');
+    const msg  = document.getElementById('msg');
 
-    form.addEventListener('submit', (e) => {
+    // Converte objeto em x-www-form-urlencoded
+    function toFormUrlEncoded(obj){
+      const params = [];
+      for (const k in obj) {
+        if (!Object.prototype.hasOwnProperty.call(obj, k)) continue;
+        params.push(encodeURIComponent(k) + "=" + encodeURIComponent(obj[k]));
+      }
+      return params.join("&");
+    }
+
+    // Envio robusto: JSON -> (fallback) urlencoded -> (fallback) sendBeacon urlencoded
+    async function sendLead(payload){
+      // 1) Tenta JSON
+      try {
+        const controller = new AbortController();
+        const t = setTimeout(() => controller.abort(), 8000); // timeout de 8s
+        const res = await fetch(APPS_SCRIPT_URL, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload),
+          signal: controller.signal
+        });
+        clearTimeout(t);
+        // Mesmo que não dê 200, o Apps Script costuma processar — consideramos enviado.
+        return true;
+      } catch (e1) {
+        console.warn("Falha JSON, tentando urlencoded...", e1);
+        // 2) Tenta form-urlencoded
+        try {
+          await fetch(APPS_SCRIPT_URL, {
+            method: "POST",
+            headers: { "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8" },
+            body: toFormUrlEncoded(payload)
+          });
+          return true;
+        } catch (e2) {
+          console.warn("Falha urlencoded, tentando sendBeacon...", e2);
+          // 3) Último recurso: sendBeacon urlencoded
+          try {
+            const ok = navigator.sendBeacon(APPS_SCRIPT_URL, toFormUrlEncoded(payload));
+            return ok; // true/false
+          } catch (e3) {
+            console.warn("Falha sendBeacon", e3);
+            return false;
+          }
+        }
+      }
+    }
+
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
       msg.textContent = "Enviando...";
       btn.disabled = true;
 
       const payload = {
-        nome: document.getElementById('nome').value.trim(),
-        email: document.getElementById('email').value.trim(),
-        whats: document.getElementById('whats').value.trim(),
-        tipo: document.getElementById('tipo').value,
-        desafio: document.getElementById('desafio').value.trim(),
+        nome:   document.getElementById('nome').value.trim(),
+        email:  document.getElementById('email').value.trim(),
+        whats:  document.getElementById('whats').value.trim(),
+        tipo:   document.getElementById('tipo').value,
+        desafio:document.getElementById('desafio').value.trim(),
         origem: window.location.href,
         ts: new Date().toISOString()
       };
 
-      // Envia sem bloquear o redirecionamento
+      let sent = false;
       try {
-        navigator.sendBeacon(APPS_SCRIPT_URL, JSON.stringify(payload));
+        sent = await sendLead(payload);
       } catch (err) {
-        console.warn("Falha no envio", err);
+        console.error("Erro inesperado no envio:", err);
       }
 
-      msg.textContent = "✅ Enviado! Redirecionando...";
-      setTimeout(() => {
-        window.location.assign(THANKYOU_URL);
-      }, 1000);
+      if (sent) {
+        msg.textContent = "✅ Enviado! Redirecionando...";
+        setTimeout(() => window.location.assign(THANKYOU_URL), 900);
+      } else {
+        msg.textContent = "❌ Erro ao enviar. Tente novamente.";
+      }
+
+      btn.disabled = false;
     });
   </script>
 </body>
