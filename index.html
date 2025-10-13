@@ -146,7 +146,7 @@
     © 2025 Intellih Tecnologia · <a href="#" style="color:var(--brand)">Política de Privacidade</a>
   </footer>
 
- <script>
+<script>
 const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwUOO4fHSeluuK_MlQ9vMkckmtxAejrjUUB2z8kJ_DFkmBk2r-qJVcn-4L8ADoJRVE0/exec";
 const THANKYOU_URL = "/thankyou.html";
 
@@ -169,29 +169,28 @@ form.addEventListener('submit', async (e) => {
     ts: new Date().toISOString()
   };
 
-  console.log("📦 Payload que será enviado:", payload);
-
+  // -------- ENVIO DEFINITIVO SEM CORS / SEM TIMEOUT --------
   try {
-    const res = await fetch(APPS_SCRIPT_URL, {
+    await fetch(APPS_SCRIPT_URL, {
       method: "POST",
-      mode: "no-cors", 
+      mode: "no-cors", // 👈 impede bloqueio de CORS
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(payload)
     });
 
-    const text = await res.text();
-    console.log("📬 Resposta do Apps Script:", text);
+    // ✅ Redireciona mesmo sem resposta
     msg.textContent = "✅ Enviado! Redirecionando...";
-    setTimeout(() => window.location.href = THANKYOU_URL, 1200);
+    setTimeout(() => window.location.href = THANKYOU_URL, 1000);
 
   } catch (err) {
     console.error("❌ Erro ao enviar:", err);
-    msg.textContent = "❌ Erro ao enviar. Veja o console (F12).";
+    msg.textContent = "❌ Erro ao enviar. Tente novamente.";
   }
 
   btn.disabled = false;
 });
 </script>
+
 
 </body>
 </html>
