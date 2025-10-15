@@ -5,7 +5,33 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Obrigado! | Intellih Tecnologia</title>
   <link rel="icon" href="/favicon.ico">
-  <meta name="description" content="Obrigado por solicitar seu diagnóstico gratuito de automação. Faça o download do e-book Automação Inteligente para Pequenos Negócios.">
+  <meta name="description" content="Obrigado por solicitar seu diagnóstico gratuito de automação. Faça o download do e-book Automação Inteligente.">
+
+  <!-- Meta Pixel Code -->
+  <script>
+    !(function(f,b,e,v,n,t,s){
+      if(f.fbq)return; n=f.fbq=function(){ n.callMethod ?
+      n.callMethod.apply(n,arguments) : n.queue.push(arguments) };
+      if(!f._fbq)f._fbq=n; n.push=n; n.loaded=!0; n.version='2.0';
+      n.queue=[]; t=b.createElement(e); t.async=!0;
+      t.src=v; s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)
+    })(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
+
+    fbq('init', '3929736470503988');
+    fbq('track', 'PageView');
+    fbq('track', 'CompleteRegistration');
+
+    // Evento de engajamento (TimeOnPage10s)
+    setTimeout(() => {
+      fbq('trackCustom', 'TimeOnPage10s');
+    }, 10000);
+  </script>
+  <noscript>
+    <img height="1" width="1" style="display:none"
+         src="https://www.facebook.com/tr?id=3929736470503988&ev=PageView&noscript=1"/>
+  </noscript>
+  <!-- End Meta Pixel Code -->
 
   <style>
     :root {
@@ -55,7 +81,7 @@
     <p>Recebemos suas informações e seu diagnóstico gratuito será enviado em breve.</p>
     <p>Enquanto isso, você pode baixar o e-book abaixo e começar a explorar como a automação pode transformar o seu negócio.</p>
 
-    <a href="ebooks/ebook-automacao-inteligente.pdf" class="btn" download>📘 Baixar e-book</a>
+    <a id="downloadEbook" href="ebooks/ebook-automacao-inteligente.pdf" class="btn" download>📘 Baixar e-book</a>
     <a href="https://automacao.intellih.com.br" class="btn alt">⬅️ Voltar ao site</a>
 
     <p style="margin-top:24px; font-size:0.9rem; color:#aaa;">
@@ -64,8 +90,17 @@
   </main>
 
   <footer>
-    © 2025 Intellih Tecnologia · <a href="#" target="_blank">Política de Privacidade</a>
+    © 2025 Intellih Tecnologia · <a href="/politica.html" target="_blank">Política de Privacidade</a>
   </footer>
+
+  <!-- Evento de clique no download -->
+  <script>
+    const ebookBtn = document.getElementById('downloadEbook');
+    if (ebookBtn) {
+      ebookBtn.addEventListener('click', () => {
+        if (typeof fbq !== 'undefined') fbq('trackCustom', 'DownloadEbook');
+      });
+    }
+  </script>
 </body>
 </html>
-
