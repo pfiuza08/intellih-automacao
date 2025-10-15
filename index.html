@@ -35,15 +35,28 @@
   <style>
     :root {
       --bg:#0a0a0a; --fg:#ffffff; --muted:#bfbfbf;
-      --brand:#c44b04; --card:#121212; --stroke:#1e1e1e;
+      --brand:#c44b04; --card:rgba(18,18,18,0.9); --stroke:#1e1e1e;
     }
-    * { box-sizing: border-box; }
+    * { box-sizing: border-box; margin:0; padding:0; }
     body {
-      margin:0;
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif;
-      background:var(--bg);
+      background:
+        linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)),
+        url('img/bg-intellih.jpg') no-repeat center center fixed;
+      background-size: cover;
       color:var(--fg);
     }
+
+    /* 🔸 Fundo adaptado para mobile */
+    @media (max-width:768px){
+      body {
+        background:
+          linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.75)),
+          url('img/bg-intellih-mobile.jpg') no-repeat center center fixed;
+        background-size: cover;
+      }
+    }
+
     .wrap { max-width:1100px; margin:0 auto; padding:24px; }
     .hero { display:grid; grid-template-columns:1.2fr 1fr; gap:32px; align-items:center; padding:48px 0; }
     .badge { display:inline-block; background:rgba(196,75,4,.15); color:#ffd9c2; border:1px solid rgba(196,75,4,.35); padding:6px 10px; border-radius:999px; font-size:12px; letter-spacing:.2px; }
@@ -57,12 +70,10 @@
     }
     .btn:hover { filter:brightness(1.05); transform:translateY(-1px); }
     .btn.alt { background:transparent; border:1px solid var(--stroke); color:#fff; }
-    .card { background:var(--card); border:1px solid var(--stroke); border-radius:16px; padding:18px; }
+    .card { background:var(--card); border:1px solid var(--stroke); border-radius:16px; padding:18px; backdrop-filter: blur(8px); }
     .grid-3 { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
-    .how { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
-    .how .step { background:var(--card); border:1px solid var(--stroke); border-radius:14px; padding:16px; }
     .kicker { color:var(--muted); font-size:14px; }
-    .form { background:var(--card); border:1px solid var(--stroke); border-radius:16px; padding:18px; }
+    .form { background:var(--card); border:1px solid var(--stroke); border-radius:16px; padding:18px; backdrop-filter: blur(8px); }
     label { font-size:14px; color:#eaeaea; display:block; margin:10px 0 6px; }
     input, select, textarea {
       width:100%; padding:12px 12px; border-radius:10px;
@@ -83,11 +94,12 @@
     .muted { color:var(--muted); font-size:12px; }
     footer {
       border-top:1px solid var(--stroke); margin-top:32px;
-      padding:24px 0; color:var(--muted); font-size:14px;
+      padding:24px 0; color:var(--muted); font-size:14px; text-align:center;
+      background:rgba(0,0,0,0.6);
     }
     @media (max-width:960px){
       .hero { grid-template-columns:1fr; }
-      .grid-3,.how { grid-template-columns:1fr; }
+      .grid-3 { grid-template-columns:1fr; }
     }
   </style>
 </head>
@@ -131,21 +143,6 @@
       <div class="card"><h3>⚙️ Integração inteligente</h3><p class="kicker">Conecte WhatsApp, CRM, Planilhas, n8n, IA e mais.</p></div>
       <div class="card"><h3>💰 ROI visível</h3><p class="kicker">Reduza custos, acelere resposta e converta melhor.</p></div>
     </div>
-  </section>
-
-  <section id="dores" class="wrap" style="padding:48px 0;">
-    <h2 style="text-align:center;margin-bottom:32px;">O que a Automação Resolve</h2>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px;">
-      <div class="card"><h3>⏰ Tarefas repetitivas</h3><p class="kicker">Deixe o robô trabalhar por você. Automatize planilhas, e-mails e respostas.</p></div>
-      <div class="card"><h3>💸 Custos desnecessários</h3><p class="kicker">Reduza retrabalhos e erros. Gaste tempo apenas no que gera lucro real.</p></div>
-      <div class="card"><h3>💬 Falta de tempo para atender</h3><p class="kicker">Chatbots e fluxos automáticos cuidam dos contatos 24h por dia.</p></div>
-      <div class="card"><h3>📉 Falta de controle</h3><p class="kicker">Relatórios automáticos e dashboards mostram tudo em tempo real.</p></div>
-      <div class="card"><h3>🤯 Sobrecarga e estresse</h3><p class="kicker">Automação libera energia e tempo para pensar no crescimento.</p></div>
-      <div class="card"><h3>📈 Dificuldade em escalar</h3><p class="kicker">Cresça sem contratar mais. Deixe os processos fluírem com automação.</p></div>
-    </div>
-    <p class="muted" style="text-align:center;margin-top:28px;">
-      🚀 Pequenas automações geram grandes resultados.
-    </p>
   </section>
 
   <section id="form" class="wrap">
@@ -223,9 +220,7 @@
         body: JSON.stringify(payload)
       });
 
-      // 🔹 Evento Meta: Lead
       if (typeof fbq !== 'undefined') fbq('track', 'Lead');
-
       msg.textContent = "✅ Enviado! Redirecionando...";
       setTimeout(() => window.location.href = THANKYOU_URL, 1000);
 
